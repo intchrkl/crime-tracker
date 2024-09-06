@@ -1,0 +1,28 @@
+<%= render partial: "partials/flash" %>
+<% if !logged_in? %>
+  <%= link_to 'Login', login_path, class: "btn red right" %>
+<% end %>
+<div class="row">  
+  <br>
+  <br>
+  <h4 class="center-align">Welcome to GCPD Crime Tracker</h4>  
+  <div class="center-align">
+    <%= image_tag 'gcpd_logo.jpg', class: 'img_left', style: 'width: 20%; height: auto;' %>
+    <div class="card">
+      <div class="card-content">
+        <p>
+            Welcome to the Gotham City Police Department's Crime Tracker Portal, 
+            your central hub for monitoring and understanding the pulse of our 
+            city's safety. As guardians of Gotham's streets, we recognize the 
+            importance of transparency and collaboration in combating crime. 
+            Whether you're a concerned citizen, a diligent member of law 
+            enforcement, or a curious observer, this platform offers real-time 
+            updates, insightful analysis, and comprehensive data on criminal 
+            activities within our jurisdiction. Join us in our mission to 
+            uphold justice, protect the innocent, and ensure Gotham remains 
+            a safer place for all who call it home.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+<%= f.input :officer_id, as: :hidden, input_html: { value: @officer.id} %>
+<%= f.input :investigation_id, collection: Investigation.all, label: "Investigation" %>

@@ -1,0 +1,30 @@
+<%# Adapted from PATSv3 %>
+<h2><%=@officer.proper_name%></h2>
+<div class="card yellow lighten-4">
+  <div class="card-content">
+
+    <b> Current unit:&nbsp;&nbsp; </b><br>
+      <%= @officer.unit.name %><br>
+    <b> Current rank:&nbsp;&nbsp; </b><br>
+      <%= @officer.rank %><br>
+    <b> Active duty?&nbsp;&nbsp; </b><br>
+      <%= @officer.active ? "Yes" : "No" %><br>
+
+   <% if !(@current_assignments.nil?) and !(@current_assignments.empty?) %>
+        <b>Current Assignments&nbsp;&nbsp;</b><br>
+            <ul>
+            <% for asgnmt in @current_assignments do %>
+            <li><%= asgnmt.investigation.title%></li> 
+            <% end %>
+        </ul><br>
+    <% end %>
+    
+    <% if !(@past_assignments.nil?) and !(@past_assignments.empty?) %>
+    <b> Past Assignments </b><br>
+      <ul>
+        <% for asgnmt in @past_assignments do %>
+          <li><%= asgnmt.investigation.title%></li> 
+        <% end %>
+      </ul><br>
+    <% end %>
+</div>

@@ -1,0 +1,21 @@
+<%# Adapted from PATSv3 %>
+<h4>Active Units in GCPD</h4>
+<table class="striped highlight">
+  <thead>
+    <th>Unit</th>
+    <th>Active</th>
+    <th>Active Officers</th>
+  </thead>
+  <% if @active_units != nil %>
+    <% for unit in @active_units %>
+        <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+        <td><%= link_to unit.name, unit_path(unit) %></td>
+        <td><%= unit.active ? "Yes" : "No" %></td>
+        <td><%= unit.number_of_active_officers %></td>
+        </tr>   
+    <% end %>
+  <% end %>
+</table>
+<br>
+<%= link_to 'New Unit', new_unit_path, class: 'waves-effect waves-light btn' %>
+

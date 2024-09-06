@@ -1,0 +1,9 @@
+<%= f.input :first_name, label_html: { class: 'active' } %>
+<%= f.input :last_name, label_html: { class: 'active' } %>
+<%= f.input :rank, collection: Officer::RANKS_LIST, include_blank: true %>
+<%= f.input :unit_id, collection: Unit.all, include_blank: true %>
+<%= f.input :ssn, label_html: { class: 'active' } %>
+<%= f.input :role, collection: OfficerAuthentication::ROLES, include_blank: true %>
+<%= f.input :username, label_html: { class: 'active' } %>
+<%= f.input :password, label_html: { class: 'active' } %>
+<%= f.input :password_confirmation, label_html: { class: 'active' } %>

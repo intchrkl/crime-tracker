@@ -1,0 +1,31 @@
+<%# Adapted from PATSv3 %>
+<h4>Active Officers in GCPD</h4>
+<table class="striped highlight">
+  <thead>
+    <th> Name </th>
+    <th> Rank </th>
+    <th> Unit </th>
+    <th class="align_center"> Options </th>
+  </thead>
+    <% for officer in @active_officers %>
+    <tr class="<%= cycle('dg_list_line_odd', 'dg_list_line_even') %>">
+      <td><%= link_to officer.name, officer_path(officer) %></td>
+      <td><%= officer.rank %></td>
+      <td><%= officer.unit.name %></td>
+      <td class="align_center">
+          <%= link_to edit_officer_path(officer) do %>
+              <i class="material-icons">edit</i>
+          <% end %>
+          &nbsp;&nbsp;&nbsp;&nbsp; 
+          <%= link_to(officer_path(officer), method: :delete, data: { confirm: 'Are you sure you wish to delete this information?' }) do %>
+              <i class="material-icons">delete</i>
+          <% end %>
+      </td>
+    </tr>   
+  <% end %>
+</table>
+<%= will_paginate @active_officers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next" %>
+
+<p><strong>
+<%= link_to "New Officer", new_officer_path, class: 'waves-effect waves-light btn' %> 
+</strong></p>

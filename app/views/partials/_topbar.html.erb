@@ -1,0 +1,28 @@
+<style>
+  .header-link {
+    color: white;
+    font-size: 4rem;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  .logo-img {
+    height: 4rem; 
+    margin-right: 20px;
+  }
+</style>
+
+<header class="grey darken-4">
+  <div class="row valign-wrapper" id="topbar">
+    <div class="col s1"></div>
+    <div class="col center-align">
+        <%= link_to home_path do %>
+          <%= image_tag 'gcpd_logo.jpg', class: 'logo-img' %>
+        <% end %>
+        <%= link_to 'GCPD Tracking System', home_path, class: "header-link" %>
+    </div>
+    <div class="col s1">&nbsp;</div>
+  </div>
+</header>

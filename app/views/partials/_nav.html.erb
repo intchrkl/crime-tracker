@@ -1,0 +1,24 @@
+<nav id="nav" class="grey darken-4">
+  <div class="container">
+    <ul class="left hide-on-med-and-down">
+      <% if logged_in? %>
+        <% if can? :read, Investigation %>
+          <li><%= link_to 'Investigations', investigations_path %></li>
+        <% end %>
+        <% if can? :read, Officer %>
+          <li><%= link_to 'Officers', officers_path %></li>
+        <% end %>
+        <% if can? :read, Unit %>
+          <li><%= link_to 'Units', units_path %></li>
+        <% end %>
+      <% end %>
+    </ul>
+    <ul class="right">
+      <% if logged_in? %>
+        <li><%= link_to 'Logout', logout_path, class: "btn red" %></li>
+      <% else %>
+        <li><%= link_to 'Login', login_path, class: "btn red" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

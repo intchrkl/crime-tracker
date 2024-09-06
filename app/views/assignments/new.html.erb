@@ -1,0 +1,22 @@
+<%# Adapted from PATS treatments %>
+<div class="row">
+    <div class="col s8">
+        <h4>New Assignment:</h4>
+        <% if @officer %>
+            <%= simple_form_for(@assignment) do |f|%>
+                <div class="row">
+                    <div class="form_inputs">
+                        <%= f.input :officer_id, as: :hidden, input_html: { value: @officer.id} %>
+                        <%= f.input :investigation_id, collection: Investigation.all, label: "Investigation" %>
+                    </div>
+                </div>
+                <div class="form_actions col s8">
+                    <%= f.button :submit %>
+                </div>
+            <% end %>
+            <div class="col s4">
+                <p>&nbsp;&nbsp;For Officer: <%= @officer.name%></p>
+            </div>
+        <% end %>
+    </div>
+</div>

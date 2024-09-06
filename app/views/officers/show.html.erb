@@ -1,0 +1,42 @@
+<%# Adapted from PATSv3 %>
+<h2><%="Officer Information for " +  @officer.proper_name%></h2>
+<div class="card grey lighten-2">
+  <div class="card-content">
+
+    <b> Current unit:&nbsp;&nbsp; </b><br>
+        <%= @officer.unit.name %><br>
+    <b> Current rank:&nbsp;&nbsp; </b><br>
+        <%= @officer.rank %><br>
+    <b> SSN:&nbsp;&nbsp; </b><br>
+        <%= @officer.ssn.insert(3, '-').insert(6, '-') %><br>
+    <b> Active duty?&nbsp;&nbsp; </b><br>
+        <%= @officer.active ? "Yes" : "No" %><br>
+
+   <% if !(@current_assignments.nil?) and !(@current_assignments.empty?) %>
+      <div class="card" id="current_assignments">
+        <b>Current Assignments&nbsp;&nbsp;</b><br>
+            <ul>
+            <% for asgnmt in @current_assignments do %>
+              <li><%= asgnmt.investigation.title%></li> 
+              <li><%= "Starting" %></li> 
+            <% end %>
+        </ul><br>
+      </div>
+    <% end %>
+    
+    <% if !(@past_assignments.nil?) and !(@past_assignments.empty?) %>
+      <div class="card" id="past_assignments" >
+        <b> Past Assignments </b><br>
+        <ul>
+          <% for asgnmt in @past_assignments do %>
+            <li><%= asgnmt.investigation.title%></li>
+            <li><%= "Ending" %></li>  
+          <% end %>
+        </ul><br>
+      </div>
+    <% end %>
+
+    <p><strong>
+      <%= link_to "Add a new assignment", new_assignment_path(officer_id: @officer.id)%>
+    </strong></p>
+</div>

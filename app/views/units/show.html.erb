@@ -1,0 +1,39 @@
+<div class="card" id="stats">
+  <div class="card-content">
+    <span class="card-title">Statistics for <%= @unit.name %> Unit</span>
+    <b>Number of Active Officers:&nbsp;&nbsp;<b>
+      <%= @unit.number_of_active_officers %><br /><br />
+    <b>Number of Open Cases:&nbsp;&nbsp;</b>
+      <%= @unit.number_of_unique_open_investigations %><br /><br />
+    <b>Number of Closed Cases:&nbsp;&nbsp;</b>
+      <%=  @unit.number_of_unique_closed_investigations %><br /><br />
+    <b>Cases Involving Batman:&nbsp;&nbsp;<b>
+      <%=  @unit.number_of_unique_investigations_involving_batman %><br /><br />
+  </div>
+</div>
+
+<div class="card" id="officers" >
+    <span class="card-title"><%= @unit.name %>'s officers</span>
+    <% if @officers.empty? %>
+        <p>There are no active officers currently in this unit</p>
+    <% else %>
+        <p>Active Officers in <%=@unit.name%> Unit</p>
+        <table class="striped highlight">
+        <thead>
+            <th> Name </th>
+            <th> Rank </th>
+            <th> Active Assignments </th>
+        </thead>
+        <% for officer in @officers %>
+            <tr>
+            <td><%= officer.name %></td>
+            <td><%= officer.rank %></td>
+            <td><%= officer.assignments.current.count %></td>
+            </tr>
+        <% end %>
+        </table>
+        <%= will_paginate @officers, previous_label: "Previous&nbsp;", next_label: "&nbsp;Next"%>
+    <% end %>
+</div>
+
+
