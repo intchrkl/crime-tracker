@@ -29,14 +29,16 @@ Instructions on how to install and set up this project locally.
 Instructions on how to run this project locally
 
 1. Start the rails server
-  ```
-  rails server
-  ```
+     ```
+     rails server
+     ```
 
 2. Go to your local host port to use the portal
 
+   > http://localhost:{your-port}/
+
 3. Use the login below to access features of the portal
 
-   username: jblake
-   password: secret
+   > username: jblake 
+   > password: secret
 
