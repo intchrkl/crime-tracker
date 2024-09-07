@@ -39,6 +39,6 @@ Instructions on how to run this project locally
 
 3. Use the login below to access features of the portal
 
-   > username: jblake 
+   > username: jgordon 
    > password: secret
 
