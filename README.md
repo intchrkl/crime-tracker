@@ -37,7 +37,7 @@ Instructions on how to run this project locally
 
    > http://localhost:{your-port}/
 
-3. Use the login below to access features of the portal
+3. Use the sample admin login below to access admin features
 
    > username: jgordon \
    > password: secret
